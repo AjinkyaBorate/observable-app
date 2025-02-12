@@ -1,0 +1,94 @@
+<div
+  class="div1 w-75 text-center p-5 mx-auto mt-3 border border-dark border-2 rounded"
+>
+  <h3 class="mb-3">Customer Form</h3>
+  <form action="" class="" [formGroup]="myform">
+    <input
+      class="form-control form-control-sm m-2"
+      type="number"
+      placeholder="Enter ID"
+      aria-label=".form-control-sm example"
+      formControlName="id"
+      [readonly]="status"
+    />
+    <div *ngIf="id?.touched && id?.invalid">
+      <p class="text-danger" *ngIf="id?.errors?.['required']">
+        ID is required
+      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="text"
+      placeholder="Enter Name"
+      aria-label=".form-control-sm example"
+      formControlName="name"
+    />
+    <div *ngIf="name?.touched && name?.invalid">
+      <p class="text-danger" *ngIf="name?.errors?.['required']">
+        Name is required
+      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="text"
+      placeholder="Enter Email"
+      aria-label=".form-control-sm example"
+      formControlName="email"
+    />
+    <div *ngIf="email?.touched && email?.invalid">
+      <p class="text-danger" *ngIf="email?.errors?.['required']">
+Email is required      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="number"
+      placeholder="Enter Age"
+      aria-label=".form-control-sm example"
+      formControlName="age"
+    />
+    <div *ngIf="age?.touched && age?.invalid">
+      <p class="text-danger" *ngIf="age?.errors?.['required']">
+        Age is required
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-dark form-control form-control-sm m-1"
+      (click)="saveCustomer()"
+    >
+      {{btnname}}
+    </button>
+  </form>
+</div>
+
+<div class="text-center mt-5">
+  <h3>Customer List Using Observables</h3>
+
+  <table
+    class="table table-striped mt-3 w-75 mx-auto border border-2 border-dark"
+  >
+    <thead>
+      <th>ID</th>
+      <th>Customer Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Operation</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customerList">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{c.age }}</td>
+        <td colspan="2">
+          <button class="btn btn-primary me-3 ms-3" (click)="editCustomer(c)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="removeCustomer(c.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

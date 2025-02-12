@@ -1,0 +1,34 @@
+{
+  "movies": [
+    {
+      "id": "122",
+      "mname": "Krish 5",
+      "mdate": "12/05/2020",
+      "mcollection": 1015
+    },
+    {
+      "id": "123",
+      "mname": "Krish 2",
+      "mdate": "12/1/2001",
+      "mcollection": 1122
+    },
+    {
+      "id": "124",
+      "mname": "Krish 3",
+      "mdate": "12/2/2001",
+      "mcollection": 1233
+    },
+    {
+      "id": "127",
+      "mname": "Pushpa-The Rise",
+      "mdate": "1/12/2001",
+      "mcollection": 500
+    },
+    {
+      "id": 128,
+      "mname": "JGM",
+      "mdate": "01/01/2022",
+      "mcollection": 1000
+    }
+  ]
+}

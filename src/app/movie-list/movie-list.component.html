@@ -1,0 +1,93 @@
+<div
+  class="div1 w-75 text-center p-5 mx-auto mt-3 border border-dark border-2 rounded"
+>
+  <h3 class="mb-3">Movie Form</h3>
+  <form action="" class="" [formGroup]="myform">
+    <input
+      class="form-control form-control-sm m-2"
+      type="number"
+      placeholder="Enter Movie ID"
+      aria-label=".form-control-sm example"
+      formControlName="id"
+      [readOnly]="status"
+    />
+    <div *ngIf="id?.touched && id?.invalid">
+      <p class="text-danger" *ngIf="mname?.errors?.['required']">
+        ID is required
+      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="text"
+      placeholder="Enter Movie Name"
+      aria-label=".form-control-sm example"
+      formControlName="mname"
+    />
+    <div *ngIf="mname?.touched && mname?.invalid">
+      <p class="text-danger" *ngIf="mname?.errors?.['required']">
+        Name is required
+      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="text"
+      placeholder="Enter Movie Release Date"
+      aria-label=".form-control-sm example"
+      formControlName="mdate"
+    />
+    <div *ngIf="mdate?.touched && mdate?.invalid">
+      <p class="text-danger" *ngIf="mdate?.errors?.['required']">
+        Date is required
+      </p>
+    </div>
+    <input
+      class="form-control form-control-sm m-2"
+      type="number"
+      placeholder="Enter Movie Collection in Cr"
+      aria-label=".form-control-sm example"
+      formControlName="mcollection"
+    />
+    <div *ngIf="mcollection?.touched && mcollection?.invalid">
+      <p class="text-danger" *ngIf="mcollection?.errors?.['required']">
+        Collection is required
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-dark form-control form-control-sm m-1"
+      (click)="saveMovie()"
+    >
+      {{btnname}}
+    </button>
+  </form>
+</div>
+
+<div class="text-center mt-5">
+  <h3>Movie List Using Observables</h3>
+
+  <table
+    class="table table-striped mt-3 w-75 mx-auto border border-2 border-dark"
+  >
+    <thead>
+      <th>ID</th>
+      <th>Movie Name</th>
+      <th>Release Date</th>
+      <th>Collection</th>
+      <th>Operations</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of movielist">
+        <td>{{ m.id }}</td>
+        <td>{{ m.mname }}</td>
+        <td>{{ m.mdate }}</td>
+        <td>{{ m.mcollection }}</td>
+        <td colspan="2">
+          <button class="btn btn-primary me-3 ms-3" (click)="editMovie(m)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="removeMovie(m.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
